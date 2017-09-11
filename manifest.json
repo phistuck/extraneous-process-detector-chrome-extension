@@ -1,0 +1,12 @@
+{
+ "name": "Extraneous Process Detector",
+ "description": "Attempts to kill extraneous Chrome processes. Requires a running server.",
+ "manifest_version": 2,
+ "version": "0.0.0.1",
+ "background":
+  {
+   "scripts": ["process-watcher.js"],
+   "persistent": true
+  },
+ "permissions": ["processes", "tabs", "notifications"]
+ }

@@ -11,7 +11,7 @@ This is an alpha release and may contain critical bugs, like ending valid proces
 
 Tested on Windows 7 Enterprise.
 
-## Usage -
+## Usage
 Follow the prerequisites, run the server and install the extension.
 
 ### Prerequisites

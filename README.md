@@ -45,7 +45,7 @@ C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -ExecutionPolicy Unres
 ```
 (Replace `Path-To-Repository` with the path to the local folder with the files from the repository.)
 
-Optionally - if you use the flag that disables the web security in Chrome append a secret code to the command and the extension will ask you to enter the secret and remember it.
+Optionally - if you use the flag that disables the web security in Chrome, append a secret code to the command and the extension will ask you to enter the secret and remember it.
 ```
 C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -ExecutionPolicy Unrestricted C:\Path-To-Repository\Start-Killer.ps1 sEcReT
 ```

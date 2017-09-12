@@ -25,13 +25,8 @@ Warning - fiddling with the registry is dangeous. If you do not know what you ar
 1. Press WinKey + R (or Start > Run...)
 2. Enter `regedit.exe`
 3. Click on OK.
-4. Find one of the following paths/keys -
-```registry
-HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Google\Update\ClientState\{8A69D345-D564-463C-AFF1-A69D9E530F96}\
-HKEY_LOCAL_MACHINE\SOFTWARE\Google\Update\ClientState\{8A69D345-D564-463C-AFF1-A69D9E530F96}\
-HKEY_CURRENT_USER\SOFTWARE\Wow6432Node\Google\Update\ClientState\{8A69D345-D564-463C-AFF1-A69D9E530F96}\
-HKEY_CURRENT_USER\SOFTWARE\Google\Update\ClientState\{8A69D345-D564-463C-AFF1-A69D9E530F96}\
-```
+4. Find the following path/key -
+`HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Google\Update\ClientState\{8A69D345-D564-463C-AFF1-A69D9E530F96}\`
 5. Right click on the right pane.
 6. Select "New".
 7. Select "String Value".
@@ -42,11 +37,6 @@ x64-dev
 0-dev
 20-dev
 ```
-10. Relaunch Chrome.
-11. Go to about:version
-12. Make sure it shows `dev` (the version will vary!) -
-`Google Chrome: 60.0.3112.113 (Official Build) dev (64-bit) (cohort: Stable)`
-13. If it does not, go to step for and pick a different path/key.
 
 ### Running The Server
 1. Either create a shortcut for the following command and put it in the Startup folder of the start menu and run it, or run the following command by yourself -
@@ -54,7 +44,14 @@ x64-dev
 C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -ExecutionPolicy Unrestricted C:\Path-To-Repository\Start-Killer.ps1
 ```
 (Replace `Path-To-Repository` with the path to the local folder with the files from the repository.)
-2. Enter `R` in order to allow the script to run.
+
+Optionally - if you use the flag that disables the web security in Chrome append a secret code to the command and the extension will ask you to enter the secret and remember it.
+```
+C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -ExecutionPolicy Unrestricted C:\Path-To-Repository\Start-Killer.ps1 sEcReT
+```
+
+
+2. You might need to enter `R` in order to allow the script to run.
 
 ### Extension Installation
 1. Download/clone the repository.

@@ -1,4 +1,5 @@
-﻿# This is a simple web server that kills Chrome renderer processes.
+﻿param ([string]$secret)
+# This is a simple web server that kills Chrome renderer processes.
 # This is a modified version of
 # https://gist.github.com/19WAS85/5424431
 
@@ -153,15 +154,42 @@ while ($listener.IsListening)
  Write-Host ''
  Write-Host "> $requestUrl"
  
+ $originValues = $request.Headers.GetValues('Origin')
+ $secretValues = $request.Headers.GetValues('X-Secret')
+ 
  $origin = ''
- if ($request.Headers.Contains('Origin'))
+ if ($originValues)
  {
-  $origin += $request.Headers.GetValues('Origin')[0];
+  $origin += $originValues[0];
+ }
+ elseif ($secret)
+ {
+  if ($secretValues)
+  {
+   if ($secretValues[0] -eq $secret)
+   {
+    $origin += 'chrome-extension://'
+   }
+   else
+   {
+    $response.StatusCode = 403
+   }
+  }
+  else
+  {
+   $response.StatusCode = 412
+  }
+ }
+ else
+ {
+  $response.StatusCode = 401
  }
 
  if ($origin.LastIndexOf('chrome-extension://') -ne 0)
  {
-  Write-Host 'Bad host. Blocked.'
+  Write-Host 'Bad origin/secret. Blocked.'
+  $responseStatus = $response.StatusCode
+  Write-Host "< $responseStatus"
   $response.Close()
   continue
  }

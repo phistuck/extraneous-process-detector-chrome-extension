@@ -8,5 +8,5 @@
    "scripts": ["process-watcher.js"],
    "persistent": true
   },
- "permissions": ["processes", "tabs", "notifications"]
+ "permissions": ["processes", "notifications"]
  }
